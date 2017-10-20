@@ -10,7 +10,7 @@ func NewRouter() *mux.Router {
 
 	router := mux.NewRouter().StrictSlash(true)
 
-	router.Methods("OPTIONS").HandlerFunc(
+	router.Methods("GET").HandlerFunc(
 		func(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Access-Control-Allow-Origin", "https://ssc.adm.ubc.ca")
 			w.Header().Set("Access-Control-Allow-Methods", "GET")
