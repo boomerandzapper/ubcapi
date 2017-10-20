@@ -87,7 +87,7 @@ let completeURL = apiEndpoint + '?';
 for (let i = 0; i < courseList.length; i++) {
     const courseCode = courseList[i];
     // If statement is for getting rid of fluff
-    if(courseCode !== '' && courseCode !== 'Course'){
+    if (courseCode !== '' && courseCode !== 'Course') {
         completeURL += `c${i}=${courseCode}&`;
     }
 }
@@ -100,19 +100,19 @@ fetch(completeURL, {
     },
     mode: 'cors',
 })
-.then( (response: Response) => {
-    console.log(JSON.parse(response.toString()));
-    return response.json() 
-})
-.catch( (reason: string) => {
-    console.log(reason);
-})
-.then( (obj: any) => {
-    console.log(obj);
-});
+    .then((response: Response) => {
+        console.log(JSON.parse(response.toString()));
+        return response.json()
+    })
+    .catch((reason: string) => {
+        console.log(reason);
+    })
+    .then((obj: any) => {
+        console.log(obj);
+    });
 
 // FOR Debugging
-courseCellMap.forEach( (cell, courseCode) => {
+courseCellMap.forEach((cell, courseCode) => {
     cell.innerText = courseCode;
 });
 
