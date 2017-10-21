@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/rs/cors"
 )
 
 type Course struct {
@@ -40,5 +42,5 @@ func main() {
 	router := NewRouter()
 
 	log.Println("Listening on: " + port)
-	log.Fatal(http.ListenAndServe(":"+port, router))
+	log.Fatal(http.ListenAndServe(":"+port, cors.Default().Handler(router)))
 }
